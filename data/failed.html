@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access Denied</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(135deg, #390404, #140505);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      color: #ff4d4d;
+      margin-bottom: 20px;
+      animation: slideDown 0.8s ease;
+      font-size: 28px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: 2px solid #ffa5b8;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff9bb0, #ff6d8a);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      color: #201659;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .background {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: #0f1e3e;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .background span {
+      width: 20vmin;
+      height: 20vmin;
+      border-radius: 20vmin;
+      position: absolute;
+      animation: move linear infinite;
+      backface-visibility: hidden;
+    }
+
+    @keyframes move {
+      100% { transform: translate3d(0, 0, 1px) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Incorrect PIN</h2>
+<a href="/"><button>Back to Keypad</button></a>
+
+<div class="background">
+  <span style="color:#E45A84; top:45%; left:53%; animation-duration:8s; animation-delay:-38s; transform-origin:2vw -24vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#a5d9a8; top:71%; left:92%; animation-duration:54s; animation-delay:-16s; transform-origin:-5vw 25vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#FFACAC; top:48%; left:81%; animation-duration:35s; animation-delay:-36s; transform-origin:-14vw -7vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#c7c7c7; top:80%; left:26%; animation-duration:51s; animation-delay:-18s; transform-origin:25vw -17vh; box-shadow:40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#c7c7c7; top:35%; left:89%; animation-duration:26s; animation-delay:-26s; transform-origin:10vw 16vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#ff7777; top:87%; left:36%; animation-duration:26s; animation-delay:-26s; transform-origin:10vw 16vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#86ff7f; top:76%; left:12%; animation-duration:26s; animation-delay:-26s; transform-origin:10vw 16vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+</div>
+
+<script>
+// Prevent improper back navigation
+history.pushState(null, null, location.href);
+history.pushState(null, null, location.href);
+
+window.addEventListener('popstate', () => {
+  alert("Please use 'Back to Keypad' button to retry.");
+  history.pushState(null, null, location.href);
+});
+</script>
+
+</body>
+</html>

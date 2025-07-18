@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Door Unlocked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Share Tech', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(135deg, #394904, #142e05);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite, fadeIn 1s ease;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 26px;
+      margin-bottom: 20px;
+      animation: slideDown 0.8s ease;
+    }
+
+    .countdown {
+      font-size: 48px;
+      color: red;
+      margin: 15px;
+      background: rgba(107, 43, 244, 0.2);
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: inline-block;
+      animation: popIn 0.5s ease;
+    }
+
+    .btn {
+      width: 160px;
+      height: 55px;
+      font-size: 20px;
+      font-family: 'Share Tech', cursive;
+      font-weight: 600;
+      margin: 15px;
+      border: 2px solid #ffa5b8;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff9bb0, #ff6d8a);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      color: #201659;
+      transition: transform 0.1s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .background {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: #0f1e3e;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .background span {
+      width: 20vmin;
+      height: 20vmin;
+      border-radius: 20vmin;
+      backface-visibility: hidden;
+      position: absolute;
+      animation: move;
+      animation-duration: 45s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes move {
+      100% { transform: translate3d(0,0,1px) rotate(360deg); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.4); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Door Unlocked Successfully</h2>
+<p style="color:white;">Door will trigger warning if not closed in:</p>
+<div class="countdown" id="count">5</div>
+
+<br><br>
+<a href="/close"><button class="btn">Close Door</button></a>
+
+<div class="background">
+  <span style="color:#E45A84; top:45%; left:53%; animation-duration:8s; animation-delay:-38s; transform-origin:2vw -24vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#a5d9a8; top:71%; left:92%; animation-duration:54s; animation-delay:-16s; transform-origin:-5vw 25vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#FFACAC; top:48%; left:81%; animation-duration:35s; animation-delay:-36s; transform-origin:-14vw -7vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#c7c7c7; top:80%; left:26%; animation-duration:51s; animation-delay:-18s; transform-origin:25vw -17vh; box-shadow:40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#c7c7c7; top:22%; left:74%; animation-duration:26s; animation-delay:-26s; transform-origin:10vw 16vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#c7c7c7; top:51%; left:42%; animation-duration:9s; animation-delay:-42s; transform-origin:14vw -2vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#E45A84; top:45%; left:31%; animation-duration:53s; animation-delay:-42s; transform-origin:5vw 3vh; box-shadow:-40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#E45A84; top:73%; left:48%; animation-duration:28s; animation-delay:-41s; transform-origin:-1vw -2vh; box-shadow:40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#a5d9a8; top:2%; left:18%; animation-duration:50s; animation-delay:-27s; transform-origin:-11vw -23vh; box-shadow:40vmin 0 5vmin currentColor;"></span>
+  <span style="color:#E45A84; top:93%; left:44%; animation-duration:35s; animation-delay:-45s; transform-origin:-6vw 8vh; box-shadow:40vmin 0 5vmin currentColor;"></span>
+</div>
+
+<script>
+let time = 5;
+const countEl = document.getElementById("count");
+const timer = setInterval(() => {
+  time--;
+  countEl.innerText = time;
+  if (time <= 0) clearInterval(timer);
+}, 1000);
+
+// Block back button
+history.pushState(null, null, location.href);
+history.pushState(null, null, location.href);
+window.addEventListener('popstate', () => {
+  alert("Warning: Use 'Close Door' button.");
+  history.pushState(null, null, location.href);
+});
+</script>
+
+</body>
+</html>
