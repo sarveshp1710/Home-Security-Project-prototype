@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Door Lock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+  <style>
+    
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #394904, #142e05);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite, fadeIn 1s ease;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  
+  @keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #0f1e3e;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background span {
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 20vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: move;
+    animation-duration: 45;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+.background span:nth-child(0) {
+    color: #E45A84;
+    top: 45%;
+    left: 53%;
+    animation-duration: 8s;
+    animation-delay: -38s;
+    transform-origin: 2vw -24vh;
+    box-shadow: -40vmin 0 5.040446462132964vmin currentColor;
+}
+.background span:nth-child(1) {
+    color: #a5d9a8;
+    top: 71%;
+    left: 92%;
+    animation-duration: 54s;
+    animation-delay: -16s;
+    transform-origin: -5vw 25vh;
+    box-shadow: -40vmin 0 5.432156198584199vmin currentColor;
+}
+.background span:nth-child(2) {
+    color: #FFACAC;
+    top: 48%;
+    left: 81%;
+    animation-duration: 35s;
+    animation-delay: -36s;
+    transform-origin: -14vw -7vh;
+    box-shadow: -40vmin 0 5.376673221726617vmin currentColor;
+}
+.background span:nth-child(3) {
+    color: #c7c7c7;
+    top: 80%;
+    left: 26%;
+    animation-duration: 51s;
+    animation-delay: -18s;
+    transform-origin: 25vw -17vh;
+    box-shadow: 40vmin 0 5.726545023531354vmin currentColor;
+}
+.background span:nth-child(4) {
+    color: #c7c7c7;
+    top: 22%;
+    left: 74%;
+    animation-duration: 26s;
+    animation-delay: -26s;
+    transform-origin: 10vw 16vh;
+    box-shadow: -40vmin 0 5.824025951209027vmin currentColor;
+}
+.background span:nth-child(5) {
+    color: #c7c7c7;
+    top: 51%;
+    left: 42%;
+    animation-duration: 9s;
+    animation-delay: -42s;
+    transform-origin: 14vw -2vh;
+    box-shadow: -40vmin 0 5.289227006495534vmin currentColor;
+}
+.background span:nth-child(6) {
+    color: #E45A84;
+    top: 45%;
+    left: 31%;
+    animation-duration: 53s;
+    animation-delay: -42s;
+    transform-origin: 5vw 3vh;
+    box-shadow: -40vmin 0 5.552408289681835vmin currentColor;
+}
+.background span:nth-child(7) {
+    color: #E45A84;
+    top: 73%;
+    left: 48%;
+    animation-duration: 28s;
+    animation-delay: -41s;
+    transform-origin: -1vw -2vh;
+    box-shadow: 40vmin 0 5.023455624753824vmin currentColor;
+}
+.background span:nth-child(8) {
+    color: #a5d9a8;
+    top: 2%;
+    left: 18%;
+    animation-duration: 50s;
+    animation-delay: -27s;
+    transform-origin: -11vw -23vh;
+    box-shadow: 40vmin 0 5.683732740312267vmin currentColor;
+}
+.background span:nth-child(9) {
+    color: #E45A84;
+    top: 93%;
+    left: 44%;
+    animation-duration: 35s;
+    animation-delay: -45s;
+    transform-origin: -6vw 8vh;
+    box-shadow: 40vmin 0 5.195583913595932vmin currentColor;
+}
+.background span:nth-child(10) {
+    color: #a5d9a8;
+    top: 99%;
+    left: 34%;
+    animation-duration: 48s;
+    animation-delay: -48s;
+    transform-origin: -3vw 9vh;
+    box-shadow: 40vmin 0 5.061078405304903vmin currentColor;
+}
+.background span:nth-child(11) {
+    color: #a5d9a8;
+    top: 21%;
+    left: 77%;
+    animation-duration: 34s;
+    animation-delay: -37s;
+    transform-origin: 16vw 0vh;
+    box-shadow: -40vmin 0 5.875732581314567vmin currentColor;
+}
+.background span:nth-child(12) {
+    color: #c7c7c7;
+    top: 7%;
+    left: 10%;
+    animation-duration: 27s;
+    animation-delay: -28s;
+    transform-origin: -14vw 9vh;
+    box-shadow: 40vmin 0 5.434548850235066vmin currentColor;
+}
+.background span:nth-child(13) {
+    color: #E45A84;
+    top: 94%;
+    left: 98%;
+    animation-duration: 50s;
+    animation-delay: -25s;
+    transform-origin: -11vw -19vh;
+    box-shadow: -40vmin 0 5.843935551605146vmin currentColor;
+}
+.background span:nth-child(14) {
+    color: #E45A84;
+    top: 59%;
+    left: 50%;
+    animation-duration: 38s;
+    animation-delay: -10s;
+    transform-origin: 22vw -22vh;
+    box-shadow: 40vmin 0 5.261761264518057vmin currentColor;
+}
+.background span:nth-child(15) {
+    color: #E45A84;
+    top: 7%;
+    left: 57%;
+    animation-duration: 48s;
+    animation-delay: -5s;
+    transform-origin: 12vw 18vh;
+    box-shadow: 40vmin 0 5.110815819662028vmin currentColor;
+}
+.background span:nth-child(16) {
+    color: #FFACAC;
+    top: 39%;
+    left: 98%;
+    animation-duration: 29s;
+    animation-delay: -4s;
+    transform-origin: -8vw -6vh;
+    box-shadow: -40vmin 0 5.201281216641827vmin currentColor;
+}
+.background span:nth-child(17) {
+    color: #a5d9a8;
+    top: 32%;
+    left: 11%;
+    animation-duration: 6s;
+    animation-delay: -11s;
+    transform-origin: 21vw 24vh;
+    box-shadow: -40vmin 0 5.349703583251403vmin currentColor;
+}
+.background span:nth-child(18) {
+    color: #c7c7c7;
+    top: 99%;
+    left: 30%;
+    animation-duration: 14s;
+    animation-delay: -30s;
+    transform-origin: 3vw -11vh;
+    box-shadow: 40vmin 0 5.558775696857767vmin currentColor;
+}
+.background span:nth-child(19) {
+    color: #a5d9a8;
+    top: 32%;
+    left: 59%;
+    animation-duration: 23s;
+    animation-delay: -22s;
+    transform-origin: -15vw 15vh;
+    box-shadow: -40vmin 0 5.7641231096162775vmin currentColor;
+}
+
+
+  /* Gradient animation */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      animation: slideDown 0.8s ease;
+    }
+
+    .pin-display {
+      font-size: 30px;
+      letter-spacing: 8px;
+      margin: 15px;
+      background: rgba(107, 43, 244, 0.2);
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #fff;
+      display: inline-block;
+      width: 100px;
+      min-width: 0;
+      animation: fadeIn 1s ease;
+      align-self: center;
+    }
+
+    .btn {
+      width: 70px;
+      height: 70px;
+      font-size: 25px;
+      font-family: 'Share Tech', cursive;
+      font-weight: 600;
+      margin: 8px;
+      border: 2px solid #ffa5b8;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff9bb0, #ff6d8a);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      color: #201659;
+      transition: transform 0.1s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .ok-btn {
+  background: linear-gradient(135deg, #a3ffbc, #58cd8f);
+  color: white;
+  border: 2px solid #acffb0;
+  font-size: 28px;
+    }
+
+    .clr-btn {
+  background: linear-gradient(135deg, #ff7e7e, #ff4d4d);
+  color: white;
+  font-size: 26px;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      color: #fff;
+      animation: slideDown 0.8s ease;
+      font-family: 'Share Tech', cursive;
+      letter-spacing: 0.5px;
+      font-size: 23px;
+      text-align: center;
+      position: relative;
+      animation: float 3s ease-in-out infinite, glitch 2s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      20% { text-shadow: -2px 0 green, 2px 0 magenta; }
+      40% { text-shadow: 2px 0 cyan, -2px 0 yellow; }
+      60% { text-shadow: -2px 0 lime, 2px 0 violet; }
+      80% { text-shadow: 2px 0 orange, -2px 0 pink; }
+      100% { text-shadow: -2px 0 red, 2px 0 blue; }
+
+    }
+    @keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(1); }
+    }
+
+    .digit-pop {
+    display: inline-block;
+    animation: popIn 0.3s ease;
+    }
+
+  </style>
+</head>
+<body>
+
+<h3>Enter PIN to Unlock Door</h3>
+<div class="pin-display" id="display">----</div>
+
+<div>
+  <button class="btn" onclick="press('1')">1</button>
+  <button class="btn" onclick="press('2')">2</button>
+  <button class="btn" onclick="press('3')">3</button><br>
+  <button class="btn" onclick="press('4')">4</button>
+  <button class="btn" onclick="press('5')">5</button>
+  <button class="btn" onclick="press('6')">6</button><br>
+  <button class="btn" onclick="press('7')">7</button>
+  <button class="btn" onclick="press('8')">8</button>
+  <button class="btn" onclick="press('9')">9</button><br>
+  <button class="btn" onclick="press('*')">*</button>
+  <button class="btn" onclick="press('0')">0</button>
+  <button class="btn" onclick="press('#')">#</button><br><br>
+<button class="btn ok-btn" onclick="submitPIN()"><span style="position: relative; top: 1.5px; left: 0.7px;">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+    <path d="M5 13l4 4L19 7" stroke= "#009d05" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg></span>
+</button>
+
+<button class="btn clr-btn" onclick="clearPIN()"><span style ="position: relative; top: 1.5px; left: 0.7px;">
+  <svg width="22" height="22" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></span>
+</button>
+
+<div class="background">
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+</div>
+
+
+</div>
+
+<script>
+let enteredPIN = "";
+
+function press(val) {
+  if (enteredPIN.length < 4) {
+    enteredPIN += val;
+    updateDisplay(enteredPIN.length - 1); // Pass only new digit index
+  }
+}
+
+function updateDisplay(popIndex = -1) {
+  const display = document.getElementById("display");
+  display.innerHTML = "";
+
+  for (let i = 0; i < 4; i++) {
+  const span = document.createElement("span");
+  if (i < enteredPIN.length) {
+    span.textContent = enteredPIN[i];
+    if (i === popIndex) span.classList.add("digit-pop");
+  } else {
+    span.textContent = "-";
+  }
+
+  display.appendChild(span);
+  }
+}
+function clearPIN() {
+  enteredPIN = "";
+  updateDisplay();
+  // Trigger wiggle
+  display.style.animation = 'none';
+  void display.offsetWidth; // Force reflow
+  display.style.animation = 'wiggle 0.3s ease';
+}
+
+function submitPIN() {
+  if (enteredPIN.length === 4) {
+    fetch('/unlock', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `pin=${enteredPIN}`
+    })
+    .then(res => res.text())
+    .then(response => document.body.innerHTML = response)
+    .catch(err => alert('Error: ' + err));
+  } else {
+    alert("Enter 4-digit PIN");
+  }
+}
+</script>
+
+</body>
+</html>
