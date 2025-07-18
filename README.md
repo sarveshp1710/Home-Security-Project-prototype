@@ -105,7 +105,7 @@ To control the system from outside your local network:
 
 # 🛠 Hardware Connections
 
-E-ESP32(30 PINS), L-LCD Display 16x2 (Without I2C), I-IR Receiver Module, P-Potentiometer <br>
+E-ESP32(30 PINS), L-LCD Display 16x2 (Without I2C), I-IR Receiver Module, P-Potentiometer(5k-10k ohm) <br>
 <br>
 I-VCC --> E-3.3v<br>
 I-GND --> E-GND<br>
