@@ -123,6 +123,11 @@ E-GND --> P-RIGHT<br>
 
 ---
 
+# Demo Video Link
+Linkedin: https://www.linkedin.com/posts/sarvesh-p-981575288_iotprojects-smartsecurity-esp32-activity-7350212581845843968-HJiC?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXZ2jEB_DadRBjJA1c9TofHQMtb9QV1XBU
+
+---
+
 ## 🙌 Credits
 
 Developed by: <b>Sarvesh P </b><br>
