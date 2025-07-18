@@ -1,0 +1,286 @@
+[
+    {
+        "id": "cea964f6c73b9e08",
+        "type": "tab",
+        "label": "Home Security",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "056bf185fad9427d",
+        "type": "mqtt in",
+        "z": "cea964f6c73b9e08",
+        "name": "",
+        "topic": "door/status",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "dc01a68f1020b4a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "740a95a9d2a5ac34",
+                "4bf40abfe83ac9d6"
+            ]
+        ]
+    },
+    {
+        "id": "740a95a9d2a5ac34",
+        "type": "debug",
+        "z": "cea964f6c73b9e08",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a5c2fb852ed74e16",
+        "type": "ui_audio",
+        "z": "cea964f6c73b9e08",
+        "name": "",
+        "group": "357a6ecb187891e1",
+        "voice": "Microsoft David - English (United States)",
+        "always": true,
+        "x": 620,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4bf40abfe83ac9d6",
+        "type": "function",
+        "z": "cea964f6c73b9e08",
+        "name": "Voice command",
+        "func": "if (msg.payload === \"OPEN\") {\n    return { payload:\"DOOR OPENED\" };\n} else if (msg.payload === \"CLOSED\") {\n    return { payload: \"DOOR CLOSED\" };\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 340,
+        "wires": [
+            [
+                "a5c2fb852ed74e16"
+            ]
+        ]
+    },
+    {
+        "id": "de82882a43043e17",
+        "type": "mqtt in",
+        "z": "cea964f6c73b9e08",
+        "name": "door/warning",
+        "topic": "door/warning",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dc01a68f1020b4a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "3809e471055c8a8a"
+            ]
+        ]
+    },
+    {
+        "id": "3809e471055c8a8a",
+        "type": "ui_audio",
+        "z": "cea964f6c73b9e08",
+        "name": "Warning[close the door]",
+        "group": "357a6ecb187891e1",
+        "voice": "Microsoft Mark - English (United States)",
+        "always": true,
+        "x": 550,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "de2ec1772908333c",
+        "type": "e-mail",
+        "z": "cea964f6c73b9e08",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "emailid@gmail.com",
+        "dname": "Receiver email id",
+        "x": 810,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b6bcaa406380b68f",
+        "type": "mqtt in",
+        "z": "cea964f6c73b9e08",
+        "name": "",
+        "topic": "door/breach",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dc01a68f1020b4a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "9fd3690c0729a50c",
+                "8cf3499fe57d37a7"
+            ]
+        ]
+    },
+    {
+        "id": "9fd3690c0729a50c",
+        "type": "function",
+        "z": "cea964f6c73b9e08",
+        "name": "Trigger email",
+        "func": "if (msg.payload===\"True\"){\n    var date = new Date().toDateString();\n    var time = new Date().toTimeString();\n    return {payload:\"Alert !!!!!\\n Security Breach is Detected in Your House\\n Date Of Breach: \"+date+\"\\nTime of Breach: \"+time, topic:\"Your House is under Security Breach\"}\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 540,
+        "wires": [
+            [
+                "de2ec1772908333c"
+            ]
+        ]
+    },
+    {
+        "id": "e6e9b5cce5053742",
+        "type": "ui_audio",
+        "z": "cea964f6c73b9e08",
+        "name": "",
+        "group": "357a6ecb187891e1",
+        "voice": "Microsoft Ravi - English (India)",
+        "always": true,
+        "x": 660,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "8cf3499fe57d37a7",
+        "type": "function",
+        "z": "cea964f6c73b9e08",
+        "name": "audio alert",
+        "func": "if (msg.payload === \"True\") {\n    return { payload:\"Security breach detected\" }\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 640,
+        "wires": [
+            [
+                "e6e9b5cce5053742"
+            ]
+        ]
+    },
+    {
+        "id": "9ba3ae2624c77eec",
+        "type": "mqtt in",
+        "z": "cea964f6c73b9e08",
+        "name": "",
+        "topic": "door/mode",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dc01a68f1020b4a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 740,
+        "wires": [
+            [
+                "806c863e9292480d"
+            ]
+        ]
+    },
+    {
+        "id": "806c863e9292480d",
+        "type": "ui_audio",
+        "z": "cea964f6c73b9e08",
+        "name": "",
+        "group": "357a6ecb187891e1",
+        "voice": "Microsoft David - English (United States)",
+        "always": true,
+        "x": 540,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "dc01a68f1020b4a5",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "357a6ecb187891e1",
+        "type": "ui_group",
+        "name": "Audio out",
+        "tab": "c57617d9269cb8f2",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c57617d9269cb8f2",
+        "type": "ui_tab",
+        "name": "Tab 2",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
