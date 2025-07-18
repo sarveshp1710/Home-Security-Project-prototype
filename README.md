@@ -16,6 +16,8 @@ This project is a smart door locking system using an ESP32 that allows you to:
 - 📢 Voice feedback using node-red dashboard
   - PIN success → "Door Opened"
   - PIN failure → "Security breach detected" (after 3 incorrect attempts)
+  - Close Door → "Door Closed"
+  - Left opened for 5 seconds → "Please Close the door"
 - 📶 MQTT status updates for door state (`OPEN`, `CLOSED`)
 - ✅ Prevents using browser back button to avoid retry abuse
 - 🔄 Non-blocking design for smooth IR + Wi-Fi multitasking
