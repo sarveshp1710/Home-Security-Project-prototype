@@ -42,7 +42,8 @@ This project is a smart door locking system using an ESP32 that allows you to:
 - Non-blocking IR decoding using `IRremote` library
 - PIN entry using remote number keys
 - Clear (`*`) and OK (`#`) functionality
-- Toggle IR mode using special remote button
+- Mode can be switched using special remote buttons.
+- Open and Close door action also can be done using special remote buttons.
 
 ---
 
