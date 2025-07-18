@@ -134,3 +134,5 @@ Developed by: <b>Sarvesh P </b><br>
 Voice feedback: Node-RED<br>
 Communication: MQTT<br>
 ESP32 Web Control & IR Mode: Custom embedded firmware <br>
+
+<h1><centre>Stay Creative!</centre></h1>
